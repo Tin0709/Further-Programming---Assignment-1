@@ -17,6 +17,10 @@ public class PolicyHolder extends Customer {
         return dependents;
     }
 
+    public PolicyHolder(String id, String fullName) {
+        super();
+        // Additional initialization here
+    }
     @Override
     public void displayDetails() {
         System.out.println("Policy Holder Details:");

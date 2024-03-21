@@ -52,5 +52,25 @@ public class Claim {
     public void setClaimAmount(double claimAmount) {
         this.claimAmount = claimAmount;
     }
+
+    public void setCardNumber(String cardNumber) {
+        this.cardNumber = cardNumber;
+    }
+
+    public void setClaimDate(Date claimDate) {
+        this.claimDate = claimDate;
+    }
+
+    public void setExamDate(Date examDate) {
+        this.examDate = examDate;
+    }
+
+    public void setDocuments(List<String> documents) {
+        this.documents = documents;
+    }
+
+    public void setInsuredPerson(Customer insuredPerson) {
+        this.insuredPerson = insuredPerson;
+    }
 }
 

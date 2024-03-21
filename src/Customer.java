@@ -12,4 +12,9 @@ public abstract class Customer {
     public String getFullName() {
         return fullName;
     }
+    public String getId() {
+        return id;
+    }
+
+
 }

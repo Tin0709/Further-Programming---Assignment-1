@@ -1,5 +1,10 @@
 import java.util.Scanner;
 import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.text.ParseException;
 
 
 public class ClaimProcessingSystem {
@@ -14,16 +19,53 @@ public class ClaimProcessingSystem {
         System.out.println("Enter Claim ID:");
         String id = scanner.nextLine();
 
-        // Example details gathering. Extend this as needed for your application.
         System.out.println("Enter Claim Amount:");
         double amount = scanner.nextDouble();
-        scanner.nextLine();  // Consume the leftover newline
+        scanner.nextLine();  // Consume the newline
 
-        // Assuming a simplified claim creation for demonstration
-        Claim newClaim = new Claim();  // Assuming an appropriate constructor or setters
+        // Additional details gathering
+        System.out.println("Enter Insured Person's Full Name:");
+        String insuredPersonName = scanner.nextLine();
+
+        System.out.println("Enter Card Number:");
+        String cardNumber = scanner.nextLine();
+
+        System.out.println("Enter Claim Date (yyyy-MM-dd):");
+        String claimDateStr = scanner.nextLine();
+
+        System.out.println("Enter Exam Date (yyyy-MM-dd):");
+        String examDateStr = scanner.nextLine();
+
+        System.out.println("Enter any Documents (comma separated):");
+        String docs = scanner.nextLine();
+        List<String> documents = new ArrayList<>();
+        for (String doc : docs.split(",")) {
+            documents.add(doc.trim());
+        }
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date claimDate = null, examDate = null;
+        try {
+            claimDate = sdf.parse(claimDateStr);
+            examDate = sdf.parse(examDateStr);
+        } catch (Exception e) {
+            System.out.println("Error parsing dates. Ensure they're in the format yyyy-MM-dd.");
+        }
+
+        // Assuming PolicyHolder or Dependent instance creation here based on insuredPersonName
+        // For now, just use the name directly, but you should create or find a matching Customer object in your system
+        PolicyHolder insuredPerson = new PolicyHolder(id, insuredPersonName); // Example
+
+        // Create the new claim with all gathered information
+        Claim newClaim = new Claim();
         newClaim.setId(id);
         newClaim.setClaimAmount(amount);
-        // Set other details as necessary...
+        newClaim.setCardNumber(cardNumber);
+        newClaim.setClaimDate(claimDate);
+        newClaim.setExamDate(examDate);
+        newClaim.setDocuments(documents);
+        // This is a placeholder - typically you'd link to an actual Customer object
+        newClaim.setInsuredPerson(insuredPerson);
 
         claimProcessManager.add(newClaim);
         System.out.println("Claim added successfully.");
@@ -120,6 +162,7 @@ public class ClaimProcessingSystem {
         }
         scanner.close();
     }
+
 
     public static void main(String[] args) {
         ClaimProcessManager manager = new ConcreteClaimProcessManager();  // Your concrete implementation
