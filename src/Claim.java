@@ -37,5 +37,20 @@ public class Claim {
         System.out.println("Status: " + status);
         System.out.println("Receiver Banking Info: " + receiverBankingInfo);
     }
+    public String getId() {
+        return id;
+    }
+
+    public double getClaimAmount() {
+        return claimAmount;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setClaimAmount(double claimAmount) {
+        this.claimAmount = claimAmount;
+    }
 }
 

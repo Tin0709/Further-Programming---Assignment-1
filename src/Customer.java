@@ -9,4 +9,7 @@ public abstract class Customer {
     protected List<Claim> listOfClaims;
 
     public abstract void displayDetails();
+    public String getFullName() {
+        return fullName;
+    }
 }

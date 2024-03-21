@@ -26,5 +26,11 @@ public class InsuranceCard {
         return !today.isAfter(expirationLocalDate);
     }
 
+    public String getCardNumber() {
+        return cardNumber;
+    }
+
+
+
 }
 

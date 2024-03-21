@@ -19,31 +19,29 @@ public class PolicyHolder extends Customer {
 
     @Override
     public void displayDetails() {
-        // Basic details
         System.out.println("Policy Holder Details:");
         System.out.println("ID: " + id);
         System.out.println("Name: " + fullName);
 
-        // Insurance card details
+        // Use getCardNumber() to get the insurance card number
         System.out.println("Insurance Card Number: " + (insuranceCard != null ? insuranceCard.getCardNumber() : "No card"));
 
-        // Dependents' details
         System.out.println("Dependents:");
         if (dependents != null && !dependents.isEmpty()) {
             for (Dependent dependent : dependents) {
                 System.out.println("\tDependent Name: " + dependent.fullName);
-                // You can add more details for each dependent if necessary
+                // Additional details for each dependent can be displayed here
             }
         } else {
             System.out.println("\tNo dependents.");
         }
 
-        // Claims details
         System.out.println("Claims:");
         if (listOfClaims != null && !listOfClaims.isEmpty()) {
             for (Claim claim : listOfClaims) {
-                System.out.println("\tClaim ID: " + claim.getId() + " Amount: " + claim.getClaimAmount());
-                // You can add more details for each claim if necessary
+                // Use getId() and getClaimAmount() to access Claim properties
+                System.out.println("\tClaim ID: " + claim.getId() + " - Amount: $" + claim.getClaimAmount());
+                // Further details for each claim can be displayed here
             }
         } else {
             System.out.println("\tNo claims.");
