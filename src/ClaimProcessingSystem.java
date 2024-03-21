@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.util.List;
+
 
 public class ClaimProcessingSystem {
     private ClaimProcessManager claimProcessManager;
@@ -54,7 +56,7 @@ public class ClaimProcessingSystem {
     }
 
     private void viewClaim() {
-        System.out.println("Enter Claim ID to view:");
+        System.out.print("Enter Claim ID to view: ");
         String id = scanner.nextLine();
         Claim claim = claimProcessManager.getOne(id);
 
@@ -65,13 +67,16 @@ public class ClaimProcessingSystem {
         }
     }
 
+
     private void viewAllClaims() {
-        System.out.println("All claims:");
-        for (Claim claim : claimProcessManager.getAll()) {
-            claim.displayClaimDetails();
-            System.out.println("---");
+        List<Claim> allClaims = claimProcessManager.getAll();
+        if (allClaims.isEmpty()) {
+            System.out.println("No claims to display.");
+        } else {
+            allClaims.forEach(Claim::displayClaimDetails);
         }
     }
+
 
     public void userInterface() {
         boolean running = true;

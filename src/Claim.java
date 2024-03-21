@@ -21,10 +21,10 @@ public class Claim {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
         System.out.println("Claim ID: " + id);
-        System.out.println("Claim Date: " + dateFormat.format(claimDate));
-        System.out.println("Insured Person: " + insuredPerson.getFullName());
-        System.out.println("Card Number: " + cardNumber);
-        System.out.println("Exam Date: " + dateFormat.format(examDate));
+        System.out.println("Claim Date: " + (claimDate != null ? dateFormat.format(claimDate) : "N/A"));
+        System.out.println("Insured Person: " + (insuredPerson != null ? insuredPerson.getFullName() : "N/A"));
+        System.out.println("Card Number: " + (cardNumber != null ? cardNumber : "N/A"));
+        System.out.println("Exam Date: " + (examDate != null ? dateFormat.format(examDate) : "N/A"));
         System.out.println("Documents:");
         if (documents != null && !documents.isEmpty()) {
             for (String document : documents) {
