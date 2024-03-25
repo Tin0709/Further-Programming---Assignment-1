@@ -2,7 +2,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+/**
+ * @author <Nguyen Trung Tin - s3988418>
+ */
 public class ConcreteClaimProcessManager implements ClaimProcessManager {
     private Map<String, Claim> claimsMap = new HashMap<>();
 
@@ -13,7 +15,6 @@ public class ConcreteClaimProcessManager implements ClaimProcessManager {
 
     @Override
     public void update(Claim claim) {
-        // Assumes that the claim ID does not change.
         // Simply re-putting the claim will update the existing entry if it exists.
         claimsMap.put(claim.getId(), claim);
     }

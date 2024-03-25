@@ -1,5 +1,7 @@
 import java.util.List;
-
+/**
+ * @author <Nguyen Trung Tin - s3988418>
+ */
 public interface ClaimProcessManager {
     void add(Claim claim);
     void update(Claim claim);

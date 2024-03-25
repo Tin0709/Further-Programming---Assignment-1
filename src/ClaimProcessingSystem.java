@@ -5,7 +5,9 @@ import java.util.Arrays;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
-
+/**
+ * @author <Nguyen Trung Tin - s3988418>
+ */
 
 public class ClaimProcessingSystem {
     private ClaimProcessManager claimProcessManager;
@@ -52,8 +54,7 @@ public class ClaimProcessingSystem {
             System.out.println("Error parsing dates. Ensure they're in the format yyyy-MM-dd.");
         }
 
-        // Assuming PolicyHolder or Dependent instance creation here based on insuredPersonName
-        // For now, just use the name directly, but you should create or find a matching Customer object in your system
+
         PolicyHolder insuredPerson = new PolicyHolder(id, insuredPersonName); // Example
 
         // Create the new claim with all gathered information
@@ -64,7 +65,7 @@ public class ClaimProcessingSystem {
         newClaim.setClaimDate(claimDate);
         newClaim.setExamDate(examDate);
         newClaim.setDocuments(documents);
-        // This is a placeholder - typically you'd link to an actual Customer object
+
         newClaim.setInsuredPerson(insuredPerson);
 
         claimProcessManager.add(newClaim);
