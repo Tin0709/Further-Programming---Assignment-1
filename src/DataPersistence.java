@@ -6,6 +6,9 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 
+/**
+ * @author <Nguyen Trung Tin - s3988418>
+ */
 
 public class DataPersistence {
 
